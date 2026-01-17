@@ -8,6 +8,10 @@ const HeroSection = () => {
     document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const scrollToRobot = () => {
+    document.getElementById("robot")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -49,9 +53,9 @@ const HeroSection = () => {
             size="lg" 
             variant="outline" 
             className="border-2 border-primary-foreground bg-primary-foreground text-primary hover:bg-primary-foreground/90 px-8 py-6 text-lg"
-            asChild
+            onClick={scrollToRobot}
           >
-            <Link to="/robot">Our Robot</Link>
+            Our Robot
           </Button>
         </div>
       </div>
