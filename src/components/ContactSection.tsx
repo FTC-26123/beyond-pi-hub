@@ -1,5 +1,6 @@
 import { Mail, MapPin, Instagram, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const ContactSection = () => {
   return (
@@ -75,8 +76,8 @@ const ContactSection = () => {
             <p className="text-primary-foreground/80 mb-6">
               Help us compete and inspire the next generation of engineers! Your support makes a real difference in our team's ability to innovate and succeed.
             </p>
-            <Button className="w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-semibold py-6 text-lg">
-              Sponsorship Info
+            <Button className="w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-semibold py-6 text-lg" asChild>
+              <Link to="/sponsorship">Sponsorship Info</Link>
             </Button>
           </div>
         </div>
