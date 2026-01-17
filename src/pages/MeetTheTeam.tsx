@@ -21,8 +21,7 @@ const teamMembers = [
   },
   {
     name: "Deepam",
-    description: "My name is Deepam, and I go to Pearson Ranch Middle School. I joined FTC to gain engineering experience and learn how to program fluently in Java. In my free time, I like to code and play chess, Euphonium, and soccer.
-"
+    description: "My name is Deepam, and I go to Pearson Ranch Middle School. I joined FTC to gain engineering experience and learn how to program fluently in Java. In my free time, I like to code and play chess, Euphonium, and soccer."
   },
   {
     name: "Satvik",
@@ -34,8 +33,7 @@ const teamMembers = [
   },
   {
     name: "Malav",
-    description: "Hi, my name is Malav, and I am currently an 8th grader at BASIS Cedar Park. I joined FTC to gain programming experience in Java and to connect with the community through outreach. In my free time, I like to code and play chess, piano, and cricket.
-"
+    description: "Hi, my name is Malav, and I am currently an 8th grader at BASIS Cedar Park. I joined FTC to gain programming experience in Java and to connect with the community through outreach. In my free time, I like to code and play chess, piano, and cricket."
   }
 
 ];
