@@ -68,30 +68,16 @@ const ContactSection = () => {
             </div>
           </div>
 
-          <div className="space-y-6">
-            <div className="bg-primary rounded-2xl p-6 text-primary-foreground">
-              <h4 className="font-display text-xl font-bold mb-2">
-                Become a Sponsor
-              </h4>
-              <p className="text-primary-foreground/80 text-sm mb-4">
-                Help us compete and inspire the next generation of engineers!
-              </p>
-              <Button className="w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-semibold">
-                Sponsorship Info
-              </Button>
-            </div>
-
-            <div className="bg-card rounded-2xl p-6 shadow-md">
-              <h4 className="font-display text-xl font-bold text-foreground mb-2">
-                Join the Team
-              </h4>
-              <p className="text-muted-foreground text-sm mb-4">
-                Love robotics? We're always looking for new members!
-              </p>
-              <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10">
-                Apply Now
-              </Button>
-            </div>
+          <div className="bg-primary rounded-2xl p-8 text-primary-foreground flex flex-col justify-center">
+            <h4 className="font-display text-2xl font-bold mb-3">
+              Become a Sponsor
+            </h4>
+            <p className="text-primary-foreground/80 mb-6">
+              Help us compete and inspire the next generation of engineers! Your support makes a real difference in our team's ability to innovate and succeed.
+            </p>
+            <Button className="w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-semibold py-6 text-lg">
+              Sponsorship Info
+            </Button>
           </div>
         </div>
       </div>
