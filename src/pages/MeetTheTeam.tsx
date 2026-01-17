@@ -4,27 +4,36 @@ import InfoCard from "@/components/InfoCard";
 
 const teamMembers = [
   {
-    name: "Team Captain",
-    description: "Leads strategy meetings and coordinates team activities. Passionate about robotics and inspiring others."
+    name: "Shiv",
+    description: "Hello, my name is Shiv! I'm 13 years old and I go to Cedar Valley Middle. I joined FTC to get familiar with Java and Python. I also joined because I adore robots, and they are very fascinating on how they work! In my free time, I play lots of sports and spend time with family and friends. 
+"
   },
   {
-    name: "Lead Programmer",
+    name: "Ashish",
     description: "Develops autonomous and driver-controlled code. Expert in Java and control systems."
   },
   {
-    name: "Lead Builder",
+    name: "Ronit",
     description: "Designs and constructs robot mechanisms. Skilled in CAD and mechanical engineering."
   },
   {
-    name: "Outreach Lead",
+    name: "Srihan",
     description: "Organizes community events and mentorship programs. Connects the team with the community."
   },
   {
-    name: "Driver",
+    name: "Deepam",
     description: "Operates the robot during competitions. Quick reflexes and strategic thinking."
   },
   {
-    name: "Scout Lead",
+    name: "Saatvik",
+    description: "Analyzes competition data and develops match strategies. Data-driven decision maker."
+  },
+  {
+    name: "Neel",
+    description: "Analyzes competition data and develops match strategies. Data-driven decision maker."
+  },
+  {
+    name: "Malav",
     description: "Analyzes competition data and develops match strategies. Data-driven decision maker."
   }
 ];
