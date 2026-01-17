@@ -31,7 +31,7 @@ const Navbar = () => {
     <nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? "bg-background/80 backdrop-blur-lg border-b border-border" 
+          ? "bg-card/95 backdrop-blur-sm shadow-md" 
           : "bg-transparent"
       }`}
     >
@@ -42,8 +42,12 @@ const Navbar = () => {
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="flex items-center gap-2"
           >
-            <span className="font-display text-xl font-bold text-gradient">Beyond Pi</span>
-            <span className="text-xs text-muted-foreground font-mono">#26123</span>
+            <span className={`font-display text-xl font-bold ${isScrolled ? 'text-primary' : 'text-primary-foreground'}`}>
+              Beyond Pi
+            </span>
+            <span className={`text-xs font-mono ${isScrolled ? 'text-muted-foreground' : 'text-primary-foreground/70'}`}>
+              #26123
+            </span>
           </button>
 
           {/* Desktop Navigation */}
@@ -52,14 +56,22 @@ const Navbar = () => {
               <button
                 key={link.href}
                 onClick={() => scrollToSection(link.href)}
-                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                className={`text-sm font-medium transition-colors ${
+                  isScrolled 
+                    ? 'text-muted-foreground hover:text-primary' 
+                    : 'text-primary-foreground/80 hover:text-primary-foreground'
+                }`}
               >
                 {link.label}
               </button>
             ))}
             <Button 
               size="sm" 
-              className="bg-gradient-primary text-primary-foreground font-medium"
+              className={`font-medium ${
+                isScrolled 
+                  ? 'bg-primary text-primary-foreground' 
+                  : 'bg-primary-foreground text-primary'
+              }`}
               onClick={() => scrollToSection("#contact")}
             >
               Join Us
@@ -68,7 +80,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden text-foreground"
+            className={`md:hidden ${isScrolled ? 'text-foreground' : 'text-primary-foreground'}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -77,19 +89,19 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
-            <div className="flex flex-col gap-4">
+          <div className="md:hidden py-4 bg-card rounded-b-2xl shadow-lg">
+            <div className="flex flex-col gap-2 px-4">
               {navLinks.map((link) => (
                 <button
                   key={link.href}
                   onClick={() => scrollToSection(link.href)}
-                  className="text-left text-muted-foreground hover:text-primary transition-colors py-2"
+                  className="text-left text-foreground hover:text-primary transition-colors py-2"
                 >
                   {link.label}
                 </button>
               ))}
               <Button 
-                className="bg-gradient-primary text-primary-foreground font-medium mt-2"
+                className="bg-primary text-primary-foreground font-medium mt-2"
                 onClick={() => scrollToSection("#contact")}
               >
                 Join Us
