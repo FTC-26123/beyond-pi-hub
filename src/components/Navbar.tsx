@@ -98,7 +98,7 @@ const Navbar = () => {
               }`}
               onClick={() => scrollToSection("#contact")}
             >
-              Join Us
+              Contact
             </Button>
           </div>
 
@@ -139,7 +139,7 @@ const Navbar = () => {
                 className="bg-primary text-primary-foreground font-medium mt-2"
                 onClick={() => scrollToSection("#contact")}
               >
-                Join Us
+                Contact
               </Button>
             </div>
           </div>
