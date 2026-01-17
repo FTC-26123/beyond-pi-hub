@@ -46,7 +46,7 @@ const HeroSection = () => {
           <Button 
             size="lg" 
             variant="outline" 
-            className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 px-8 py-6 text-lg"
+            className="border-2 border-primary-foreground bg-primary-foreground text-primary hover:bg-primary-foreground/90 px-8 py-6 text-lg"
           >
             Our Robot
           </Button>
