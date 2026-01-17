@@ -1,77 +1,93 @@
-import { Cog, Users, Trophy, Lightbulb } from "lucide-react";
+import { Heart, Users, Lightbulb, Target } from "lucide-react";
 
-const stats = [
-  { icon: Users, value: "15+", label: "Team Members" },
-  { icon: Trophy, value: "5+", label: "Awards Won" },
-  { icon: Cog, value: "3", label: "Seasons" },
-  { icon: Lightbulb, value: "∞", label: "Ideas" },
+const values = [
+  {
+    icon: Heart,
+    title: "Passion",
+    description: "We love what we do and it shows in everything we build.",
+  },
+  {
+    icon: Users,
+    title: "Teamwork",
+    description: "Together we achieve more than we ever could alone.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Creativity",
+    description: "We think outside the box to solve complex challenges.",
+  },
+  {
+    icon: Target,
+    title: "Dedication",
+    description: "We put in the work to make our ideas come to life.",
+  },
 ];
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-24 px-4 relative">
+    <section id="about" className="py-24 px-4 bg-background">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="text-primary font-display text-sm tracking-widest uppercase mb-4 block">
+          <span className="text-primary font-semibold text-sm uppercase tracking-wider mb-4 block">
             Who We Are
           </span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
-            More Than Just <span className="text-gradient">Robots</span>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
+            About Beyond Pi
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Beyond Pi is a FIRST Tech Challenge robotics team driven by curiosity, 
-            creativity, and a passion for STEM education.
+            We're a FIRST Tech Challenge team bringing together students who share 
+            a love for robotics, engineering, and making a difference in our community.
           </p>
         </div>
 
-        {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          {stats.map((stat, index) => (
-            <div 
-              key={index}
-              className="p-6 rounded-xl border-glow bg-card/50 backdrop-blur-sm text-center hover:scale-105 transition-transform"
-            >
-              <stat.icon className="w-8 h-8 text-primary mx-auto mb-4" />
-              <div className="font-display text-3xl md:text-4xl font-bold text-gradient mb-2">
-                {stat.value}
-              </div>
-              <div className="text-muted-foreground text-sm">{stat.label}</div>
+        {/* Story Card */}
+        <div className="bg-card rounded-3xl p-8 md:p-12 shadow-lg mb-16">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 className="font-display text-2xl font-bold text-foreground mb-4">
+                Our Story
+              </h3>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Beyond Pi started with a simple idea: bring together curious minds 
+                who want to learn, build, and compete. Our name represents going 
+                beyond the limits — just like the infinite digits of π.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                From late-night build sessions to competition day excitement, 
+                we've grown into a family that supports each other on and off the field.
+              </p>
             </div>
-          ))}
+            <div className="bg-secondary rounded-2xl p-8 text-center">
+              <div className="text-6xl mb-4">π</div>
+              <p className="text-foreground font-display text-xl font-bold">
+                Going Beyond Limits
+              </p>
+              <p className="text-muted-foreground text-sm mt-2">
+                Team #26123
+              </p>
+            </div>
+          </div>
         </div>
 
-        {/* Mission Cards */}
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="p-8 rounded-2xl bg-gradient-to-br from-primary/10 to-transparent border-glow">
-            <h3 className="font-display text-2xl font-bold text-primary mb-4">Our Mission</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              To inspire the next generation of engineers, scientists, and innovators through 
-              hands-on robotics experience. We believe in learning by doing, failing forward, 
-              and celebrating every breakthrough—big or small.
-            </p>
-          </div>
-          <div className="p-8 rounded-2xl bg-gradient-to-br from-accent/10 to-transparent border-glow">
-            <h3 className="font-display text-2xl font-bold text-accent mb-4">Our Values</h3>
-            <ul className="text-muted-foreground space-y-3">
-              <li className="flex items-center gap-3">
-                <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                Innovation through experimentation
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                Gracious Professionalism®
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                Collaborative problem-solving
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="w-1.5 h-1.5 bg-primary rounded-full" />
-                Community impact and outreach
-              </li>
-            </ul>
-          </div>
+        {/* Values Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {values.map((value, index) => (
+            <div 
+              key={index}
+              className="bg-card rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow text-center"
+            >
+              <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <value.icon className="w-7 h-7 text-primary" />
+              </div>
+              <h3 className="font-display text-lg font-bold text-foreground mb-2">
+                {value.title}
+              </h3>
+              <p className="text-muted-foreground text-sm">
+                {value.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
