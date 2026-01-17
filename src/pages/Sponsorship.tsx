@@ -92,8 +92,8 @@ const Sponsorship = () => {
           
           {/* CTA */}
           <div className="text-center">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg">
-              Contact Us to Sponsor
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg" asChild>
+              <a href="mailto:contact@beyondpi26123.com?subject=Sponsorship%20Inquiry">Contact Us to Sponsor</a>
             </Button>
           </div>
         </div>
