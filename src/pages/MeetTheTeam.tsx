@@ -12,21 +12,32 @@ const teamMembers = [
     description: "Hello, my name is Ashish! I'm 13 years old and I go to Cedar Valley Middle School. I joined FTC to grasp an understanding of how robots work and the aspects behind them. In my free time, I play lots of sports, including basketball."
   },
   {
-    name: "Lead Builder",
-    description: "Designs and constructs robot mechanisms. Skilled in CAD and mechanical engineering."
+    name: "Ronit",
+    description: "My name is Ronit, and I go to attend Pearson Ranch Middle School. I joined FTC to connect with the robotics community and gain coding knowledge in Java. In my free time, I enjoy playing the viola, playing video games, and sleeping."
   },
   {
-    name: "Outreach Lead",
-    description: "Organizes community events and mentorship programs. Connects the team with the community."
+    name: "Srihan",
+    description: "My name is Srihan, and I go to Cedar Valley Middle School. I joined FTC to learn about engineering and coding languages. In my free time, I like to play video games, play soccer with my friends, and sleep."
   },
   {
-    name: "Driver",
-    description: "Operates the robot during competitions. Quick reflexes and strategic thinking."
+    name: "Deepam",
+    description: "My name is Deepam, and I go to Pearson Ranch Middle School. I joined FTC to gain engineering experience and learn how to program fluently in Java. In my free time, I like to code and play chess, Euphonium, and soccer.
+"
   },
   {
-    name: "Scout Lead",
-    description: "Analyzes competition data and develops match strategies. Data-driven decision maker."
+    name: "Satvik",
+    description: "Hello, my name is Satvik, and I go to Pearson Ranch Middle School. I joined FTC to gain more knowledge about working as a team. I have 5 years of experience in FLL, and I wanted to take the next step. I enjoy playing cello, gaming, and playing with my friends."
+  },
+  {
+    name: "Neel",
+    description: "Hello, I am Neel. I am 13 years old and go to Pearson Ranch MS. I enjoy playing the clarinet and the piano. I joined FTC because I was interested in how the robot works and learning how to code. I have 1 year of experience in FLLC, and I am working on my first year in FTC."
+  },
+  {
+    name: "Malav",
+    description: "Hi, my name is Malav, and I am currently an 8th grader at BASIS Cedar Park. I joined FTC to gain programming experience in Java and to connect with the community through outreach. In my free time, I like to code and play chess, piano, and cricket.
+"
   }
+
 ];
 
 const MeetTheTeam = () => {
