@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 import teamHeroImage from "@/assets/team-hero.png";
 
 const HeroSection = () => {
@@ -40,15 +41,17 @@ const HeroSection = () => {
           <Button 
             size="lg" 
             className="bg-primary-foreground text-primary font-semibold px-8 py-6 text-lg hover:bg-primary-foreground/90 transition-colors"
+            asChild
           >
-            Meet The Team
+            <Link to="/meet-the-team">Meet The Team</Link>
           </Button>
           <Button 
             size="lg" 
             variant="outline" 
             className="border-2 border-primary-foreground bg-primary-foreground text-primary hover:bg-primary-foreground/90 px-8 py-6 text-lg"
+            asChild
           >
-            Our Robot
+            <Link to="/robot">Our Robot</Link>
           </Button>
         </div>
       </div>
