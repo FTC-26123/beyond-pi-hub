@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
+import teamHeroImage from "@/assets/team-hero.png";
 
 const HeroSection = () => {
   const scrollToAbout = () => {
@@ -7,11 +8,15 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-primary overflow-hidden">
-      {/* Decorative shapes */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-primary-foreground/10 rounded-full" />
-      <div className="absolute bottom-32 right-20 w-48 h-48 bg-primary-foreground/10 rounded-full" />
-      <div className="absolute top-1/3 right-10 w-20 h-20 bg-primary-foreground/5 rounded-2xl rotate-12" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${teamHeroImage})` }}
+      />
+      
+      {/* Orange Overlay */}
+      <div className="absolute inset-0 bg-primary/80" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
