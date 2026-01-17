@@ -6,6 +6,7 @@ import { Link, useLocation } from "react-router-dom";
 const navLinks = [
   { href: "#about", label: "About", isSection: true },
   { href: "#robot", label: "Robot", isSection: true },
+  { href: "/past-seasons", label: "Past Seasons", isSection: false },
   { href: "/outreach", label: "Outreach", isSection: false },
   { href: "/sponsorship", label: "Sponsorship", isSection: false },
   { href: "/meet-the-team", label: "Team", isSection: false },
