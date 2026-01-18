@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import InfoCard from "@/components/InfoCard";
 import teamShiv from "@/assets/team-shiv.png";
+import teamAshish from "@/assets/team-ashish.png";
 
 const teamMembers = [
   {
@@ -11,7 +12,8 @@ const teamMembers = [
   },
   {
     name: "Ashish",
-    description: "Hello, my name is Ashish! I'm 13 years old and I go to Cedar Valley Middle School. I joined FTC to grasp an understanding of how robots work and the aspects behind them. In my free time, I play lots of sports, including basketball."
+    description: "Hello, my name is Ashish! I'm 13 years old and I go to Cedar Valley Middle School. I joined FTC to grasp an understanding of how robots work and the aspects behind them. In my free time, I play lots of sports, including basketball.",
+    image: teamAshish
   },
   {
     name: "Ronit",
