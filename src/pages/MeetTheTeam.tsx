@@ -6,6 +6,7 @@ import teamAshish from "@/assets/team-ashish.png";
 import teamSrihan from "@/assets/team-srihan.png";
 import teamDeepam from "@/assets/team-deepam.png";
 import teamSatvik from "@/assets/team-satvik.png";
+import teamNeel from "@/assets/team-neel.png");
 
 const teamMembers = [
   {
@@ -39,7 +40,8 @@ const teamMembers = [
   },
   {
     name: "Neel",
-    description: "Hello, I am Neel. I am 13 years old and go to Pearson Ranch MS. I enjoy playing the clarinet and the piano. I joined FTC because I was interested in how the robot works and learning how to code. I have 1 year of experience in FLLC, and I am working on my first year in FTC."
+    description: "Hello, I am Neel. I am 13 years old and go to Pearson Ranch MS. I enjoy playing the clarinet and the piano. I joined FTC because I was interested in how the robot works and learning how to code. I have 1 year of experience in FLLC, and I am working on my first year in FTC.",
+    image: teamNeel
   },
   {
     name: "Malav",
