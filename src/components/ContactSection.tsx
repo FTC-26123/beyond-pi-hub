@@ -44,7 +44,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Location</p>
-                  <p className="text-foreground font-medium">Your City, State</p>
+                  <p className="text-foreground font-medium">Austin, Texas</p>
                 </div>
               </div>
             </div>
