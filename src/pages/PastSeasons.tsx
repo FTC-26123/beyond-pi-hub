@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import pastRobot2024 from "@/assets/past-robot-2024.png";
 
 const PastSeasons = () => {
   return (
@@ -19,20 +20,16 @@ const PastSeasons = () => {
 
           {/* Past Season Display */}
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            {/* Robot Image Placeholder */}
-            <div className="bg-card rounded-3xl p-8 shadow-lg">
-              <div className="aspect-square rounded-2xl bg-muted flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="text-8xl mb-4">🤖</div>
-                  <p className="text-foreground font-display text-xl font-bold">
-                    Robot Photo
-                  </p>
-                  <p className="text-muted-foreground text-sm mt-2">
-                    Coming Soon!
-                  </p>
-                </div>
-              </div>
+          {/* Robot Image */}
+          <div className="bg-card rounded-3xl p-8 shadow-lg">
+            <div className="aspect-square rounded-2xl bg-muted flex items-center justify-center overflow-hidden">
+              <img 
+                src={pastRobot2024} 
+                alt="Into the Deep Robot 2023-2024" 
+                className="w-full h-full object-contain"
+              />
             </div>
+          </div>
 
             {/* Robot Info */}
             <div className="space-y-6">
