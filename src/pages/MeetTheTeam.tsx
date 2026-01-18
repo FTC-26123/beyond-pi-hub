@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import InfoCard from "@/components/InfoCard";
 import teamShiv from "@/assets/team-shiv.png";
 import teamAshish from "@/assets/team-ashish.png";
+import teamSrihan from "@/assets/team-srihan.png";
 
 const teamMembers = [
   {
@@ -21,7 +22,8 @@ const teamMembers = [
   },
   {
     name: "Srihan",
-    description: "My name is Srihan, and I go to Cedar Valley Middle School. I joined FTC to learn about engineering and coding languages. In my free time, I like to play video games, play soccer with my friends, and sleep."
+    description: "My name is Srihan, and I go to Cedar Valley Middle School. I joined FTC to learn about engineering and coding languages. In my free time, I like to play video games, play soccer with my friends, and sleep.",
+    image: teamSrihan
   },
   {
     name: "Deepam",
