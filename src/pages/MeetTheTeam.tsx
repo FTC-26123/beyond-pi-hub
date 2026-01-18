@@ -4,6 +4,7 @@ import InfoCard from "@/components/InfoCard";
 import teamShiv from "@/assets/team-shiv.png";
 import teamAshish from "@/assets/team-ashish.png";
 import teamSrihan from "@/assets/team-srihan.png";
+import teamDeepam from "@/assets/team-deepam.png";
 
 const teamMembers = [
   {
@@ -27,7 +28,8 @@ const teamMembers = [
   },
   {
     name: "Deepam",
-    description: "My name is Deepam, and I go to Pearson Ranch Middle School. I joined FTC to gain engineering experience and learn how to program fluently in Java. In my free time, I like to code and play chess, Euphonium, and soccer."
+    description: "My name is Deepam, and I go to Pearson Ranch Middle School. I joined FTC to gain engineering experience and learn how to program fluently in Java. In my free time, I like to code and play chess, Euphonium, and soccer.",
+    image: teamDeepam
   },
   {
     name: "Satvik",
