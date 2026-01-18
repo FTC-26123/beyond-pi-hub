@@ -47,7 +47,7 @@ const teamMembers = [
   },
   {
     name: "Niranjan",
-    description: "Hi, my name is Malav, and I am currently an 8th grader at BASIS Cedar Park. I joined FTC to further enhance my profiency in programming languages such as Java as well as giving back to the Robotics Community."
+    description: "Hi, my name is Niranjan, and I am currently an 8th grader at Pearson Ranch MS. I joined FTC to further enhance my profiency in programming languages such as Java as well as giving back to the Robotics Community."
   }
 
 ];
