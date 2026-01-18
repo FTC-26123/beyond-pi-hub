@@ -44,6 +44,10 @@ const teamMembers = [
   {
     name: "Malav",
     description: "Hi, my name is Malav, and I am currently an 8th grader at BASIS Cedar Park. I joined FTC to gain programming experience in Java and to connect with the community through outreach. In my free time, I like to code and play chess, piano, and cricket."
+  },
+  {
+    name: "Niranjan",
+    description: "Hi, my name is Malav, and I am currently an 8th grader at BASIS Cedar Park. I joined FTC to further enhance my profiency in programming languages such as Java as well as giving back to the Robotics Community."
   }
 
 ];
