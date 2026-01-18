@@ -1,11 +1,13 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import InfoCard from "@/components/InfoCard";
+import teamShiv from "@/assets/team-shiv.png";
 
 const teamMembers = [
   {
     name: "Shiv",
-    description: "Hello, my name is Shiv! I'm 13 years old and I go to Cedar Valley Middle. I joined FTC to get familiar with Java and Python. I also joined because I adore robots, and they are very fascinating on how they work! In my free time, I play lots of sports and spend time with family and friends. "
+    description: "Hello, my name is Shiv! I'm 13 years old and I go to Cedar Valley Middle. I joined FTC to get familiar with Java and Python. I also joined because I adore robots, and they are very fascinating on how they work! In my free time, I play lots of sports and spend time with family and friends. ",
+    image: teamShiv
   },
   {
     name: "Ashish",
@@ -61,6 +63,13 @@ const MeetTheTeam = () => {
                 key={index}
                 title={member.name}
                 description={member.description}
+                imagePlaceholder={member.image ? (
+                  <img 
+                    src={member.image} 
+                    alt={member.name} 
+                    className="w-full h-full object-cover rounded-xl"
+                  />
+                ) : undefined}
               />
             ))}
           </div>
