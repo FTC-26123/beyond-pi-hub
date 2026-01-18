@@ -9,15 +9,17 @@ interface InfoCardProps {
 
 const InfoCard = ({ imagePlaceholder, title, bulletPoints, description }: InfoCardProps) => {
   return (
-    <div className="flex flex-col gap-4">
-      {/* Photo Box */}
-      <div className="bg-card rounded-2xl p-8 flex items-center justify-center min-h-[200px]">
-        {imagePlaceholder || (
-          <div className="text-muted-foreground text-center">
-            <div className="w-24 h-24 bg-secondary rounded-full mx-auto mb-4" />
-            <p>Photo</p>
-          </div>
-        )}
+    <div className="flex flex-col gap-4 h-full">
+      {/* Photo Box - Fixed aspect ratio */}
+      <div className="bg-card rounded-2xl p-4 flex items-center justify-center">
+        <div className="aspect-square w-full rounded-xl overflow-hidden">
+          {imagePlaceholder || (
+            <div className="w-full h-full bg-secondary flex flex-col items-center justify-center text-muted-foreground">
+              <div className="w-24 h-24 bg-muted rounded-full mb-4" />
+              <p>Photo</p>
+            </div>
+          )}
+        </div>
       </div>
       
       {/* Title */}
