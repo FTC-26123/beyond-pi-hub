@@ -5,6 +5,7 @@ import teamShiv from "@/assets/team-shiv.png";
 import teamAshish from "@/assets/team-ashish.png";
 import teamSrihan from "@/assets/team-srihan.png";
 import teamDeepam from "@/assets/team-deepam.png";
+import teamSatvik from "@/assets/team-satvik.png";
 
 const teamMembers = [
   {
@@ -33,7 +34,8 @@ const teamMembers = [
   },
   {
     name: "Satvik",
-    description: "Hello, my name is Satvik, and I go to Pearson Ranch Middle School. I joined FTC to gain more knowledge about working as a team. I have 5 years of experience in FLL, and I wanted to take the next step. I enjoy playing cello, gaming, and playing with my friends."
+    description: "Hello, my name is Satvik, and I go to Pearson Ranch Middle School. I joined FTC to gain more knowledge about working as a team. I have 5 years of experience in FLL, and I wanted to take the next step. I enjoy playing cello, gaming, and playing with my friends.",
+    image: teamSatvik
   },
   {
     name: "Neel",
