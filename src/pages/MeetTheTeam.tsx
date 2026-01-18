@@ -6,8 +6,8 @@ import teamAshish from "@/assets/team-ashish.png";
 import teamSrihan from "@/assets/team-srihan.png";
 import teamDeepam from "@/assets/team-deepam.png";
 import teamSatvik from "@/assets/team-satvik.png";
-import teamNeel from "@/assets/team-neel.png");
-import teamMalav from "@/assets/team-malav.png");
+import teamNeel from "@/assets/team-neel.png";
+import teamMalav from "@/assets/team-malav.png";
 
 const teamMembers = [
   {
