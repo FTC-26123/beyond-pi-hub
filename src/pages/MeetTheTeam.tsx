@@ -8,6 +8,8 @@ import teamDeepam from "@/assets/team-deepam.png";
 import teamSatvik from "@/assets/team-satvik.png";
 import teamNeel from "@/assets/team-neel.png";
 import teamMalav from "@/assets/team-malav.png";
+import teamRonit from "@/assets/team-ronit";
+
 
 const teamMembers = [
   {
@@ -22,7 +24,8 @@ const teamMembers = [
   },
   {
     name: "Ronit",
-    description: "My name is Ronit, and I go to attend Pearson Ranch Middle School. I joined FTC to connect with the robotics community and gain coding knowledge in Java. In my free time, I enjoy playing the viola, playing video games, and sleeping."
+    description: "My name is Ronit, and I go to attend Pearson Ranch Middle School. I joined FTC to connect with the robotics community and gain coding knowledge in Java. In my free time, I enjoy playing the viola, playing video games, and sleeping.",
+    image: teamRonit
   },
   {
     name: "Srihan",
