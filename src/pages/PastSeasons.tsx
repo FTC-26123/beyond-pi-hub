@@ -35,10 +35,11 @@ const PastSeasons = () => {
             <div className="space-y-6">
               <div className="bg-card rounded-2xl p-6 shadow-md">
                 <h3 className="font-display text-xl font-bold text-foreground mb-3">
-                  Season 2023-2024
+                  Season 2024-2025
                 </h3>
                 <p className="text-muted-foreground">
-                  Description of last year's challenge and robot design goes here.
+                  In this season, we were required to hang specimens and 
+                  drop samples into the dedicated baskets.
                 </p>
               </div>
 
@@ -48,7 +49,7 @@ const PastSeasons = () => {
                   <p className="text-muted-foreground text-sm">Max Size</p>
                 </div>
                 <div className="bg-card rounded-2xl p-6 shadow-md text-center">
-                  <p className="text-3xl font-display font-bold text-primary">42 lbs</p>
+                  <p className="text-3xl font-display font-bold text-primary">32 lbs</p>
                   <p className="text-muted-foreground text-sm">Weight</p>
                 </div>
               </div>
@@ -58,10 +59,10 @@ const PastSeasons = () => {
                   Key Features
                 </h3>
                 <ul className="space-y-2 text-primary-foreground/90">
-                  <li>• Feature 1</li>
-                  <li>• Feature 2</li>
-                  <li>• Feature 3</li>
-                  <li>• Feature 4</li>
+                  <li>• Ability to score samples into high basket</li>
+                  <li>• Ability to hang specimens on the rung</li>
+                  <li>• Ability to hang in End Game</li>
+                  <li>• Excellent Autonomous Programming</li>
                 </ul>
               </div>
             </div>
