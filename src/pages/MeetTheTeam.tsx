@@ -9,6 +9,8 @@ import teamSatvik from "@/assets/team-satvik.png";
 import teamNeel from "@/assets/team-neel.png";
 import teamMalav from "@/assets/team-malav.png";
 import teamRonit from "@/assets/team-ronit.png";
+import teamNJ from "@/assets/team-nj.png";
+
 
 
 const teamMembers = [
@@ -54,7 +56,8 @@ const teamMembers = [
   },
   {
     name: "Niranjan",
-    description: "Hi, my name is Niranjan, and I am currently an 8th grader at Pearson Ranch MS. I joined FTC to further enhance my profiency in programming languages such as Java as well as giving back to the Robotics Community."
+    description: "Hi, my name is Niranjan, and I am currently an 8th grader at Pearson Ranch MS. I joined FTC to further enhance my profiency in programming languages such as Java as well as giving back to the Robotics Community.",
+    image: teamNJ
   }
 
 ];
