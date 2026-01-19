@@ -1,14 +1,14 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import InfoCard from "@/components/InfoCard";
-import teamShiv from "@/assets/shiv.png";
+import teamShiv from "@/assets/team-shiv.png";
 import teamAshish from "@/assets/team-ashish.png";
 import teamSrihan from "@/assets/team-srihan.png";
 import teamDeepam from "@/assets/team-deepam.png";
 import teamSatvik from "@/assets/team-satvik.png";
 import teamNeel from "@/assets/team-neel.png";
 import teamMalav from "@/assets/team-malav.png";
-import teamRonit from "@/assets/team-ronit";
+import teamRonit from "@/assets/team-ronit.png";
 
 
 const teamMembers = [
