@@ -36,8 +36,8 @@ const AboutSection = () => {
             About Beyond Pi
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            We're a FIRST Tech Challenge team bringing together students who share 
-            a love for robotics, engineering, and making a difference in our community.
+            We're a FIRST Tech Challenge team building robots 
+            and having fun while giving back to our community
           </p>
         </div>
 
@@ -49,13 +49,12 @@ const AboutSection = () => {
                 Our Story
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Beyond Pi started with a simple idea: bring together curious minds 
-                who want to learn, build, and compete. Our name represents going 
-                beyond the limits — just like the infinite digits of π.
+               Our FTC team was formed when two FLL teams came together, combining our skills, experiences, and friendships into one stronger group. 
+                What started as separate journeys quickly turned into a shared passion for engineering, innovation, and problem-solving.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                From late-night build sessions to competition day excitement, 
-                we've grown into a family that supports each other on and off the field.
+               United by curiosity and teamwork, we now tackle bigger
+               challenges together and push each other to grow every season.
               </p>
             </div>
             <div className="bg-secondary rounded-2xl p-8 text-center">
