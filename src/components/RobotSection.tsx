@@ -36,11 +36,11 @@ const RobotSection = () => {
           <div className="space-y-6">
             <div className="bg-card rounded-2xl p-6 shadow-md">
               <h3 className="font-display text-xl font-bold text-foreground mb-3">
-                Season 2024-2025
+                Season 2025-2026
               </h3>
               <p className="text-muted-foreground">
-                Our robot is designed for the INTO THE DEEP challenge, featuring 
-                specialized mechanisms for sample collection and scoring.
+                Our robot is designed for the DECODE challenge, featuring 
+                specialized mechanisms for quick intake and outtake cycles.
               </p>
             </div>
 
@@ -50,7 +50,7 @@ const RobotSection = () => {
                 <p className="text-muted-foreground text-sm">Max Size</p>
               </div>
               <div className="bg-card rounded-2xl p-6 shadow-md text-center">
-                <p className="text-3xl font-display font-bold text-primary">42 lbs</p>
+                <p className="text-3xl font-display font-bold text-primary">37 lbs</p>
                 <p className="text-muted-foreground text-sm">Weight</p>
               </div>
             </div>
@@ -60,10 +60,10 @@ const RobotSection = () => {
                 Key Features
               </h3>
               <ul className="space-y-2 text-primary-foreground/90">
-                <li>• Custom intake system</li>
-                <li>• Precise arm mechanism</li>
-                <li>• Autonomous programming</li>
-                <li>• Efficient drivetrain</li>
+                <li>• Efficient Intake</li>
+                <li>• Ability to shoot from both near and far zones</li>
+                <li>• Quick Immediate Cycles </li>
+                <li>• High Scoring Autonomous Codes</li>
               </ul>
             </div>
           </div>
