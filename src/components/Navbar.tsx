@@ -68,7 +68,7 @@ const Navbar = () => {
                 <button
                   key={link.href}
                   onClick={() => scrollToSection(link.href)}
-                  className={`text-sm font-medium transition-colors ${
+                  className={`text-sm font-medium transition-all duration-150 hover:scale-105 active:scale-95 ${
                     showSolidNav
                       ? 'text-muted-foreground hover:text-primary' 
                       : 'text-primary-foreground/80 hover:text-primary-foreground'
@@ -80,7 +80,7 @@ const Navbar = () => {
                 <Link
                   key={link.href}
                   to={link.href}
-                  className={`text-sm font-medium transition-colors ${
+                  className={`text-sm font-medium transition-all duration-150 hover:scale-105 active:scale-95 ${
                     showSolidNav
                       ? 'text-muted-foreground hover:text-primary' 
                       : 'text-primary-foreground/80 hover:text-primary-foreground'
