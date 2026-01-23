@@ -51,6 +51,11 @@ const Navbar = () => {
           {/* Logo */}
           <Link 
             to="/"
+            onClick={() => {
+              if (isHomePage) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }}
             className="flex items-center gap-2"
           >
             <span className={`font-display text-xl font-bold ${showSolidNav ? 'text-primary' : 'text-primary-foreground'}`}>
