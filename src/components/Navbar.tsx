@@ -66,6 +66,7 @@ const Navbar = () => {
             {navLinks.map((link) => (
               link.isSection ? (
                 <button
+                  type="button"
                   key={link.href}
                   onClick={() => scrollToSection(link.href)}
                   className={`text-sm font-medium transition-all duration-150 hover:scale-105 active:scale-95 ${
@@ -119,6 +120,7 @@ const Navbar = () => {
               {navLinks.map((link) => (
                 link.isSection ? (
                   <button
+                    type="button"
                     key={link.href}
                     onClick={() => scrollToSection(link.href)}
                     className="text-left text-foreground hover:text-primary transition-colors py-2"
