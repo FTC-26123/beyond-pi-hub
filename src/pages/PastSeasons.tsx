@@ -1,8 +1,18 @@
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import pastRobot2024 from "@/assets/past-robot-2024.png";
 
 const PastSeasons = () => {
+  const robotRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: robotRef,
+    offset: ["start end", "end start"]
+  });
+  
+  const rotateY = useTransform(scrollYProgress, [0, 1], [0, 360]);
+
   return (
     <div className="min-h-screen bg-background text-foreground font-body">
       <Navbar />
@@ -19,16 +29,19 @@ const PastSeasons = () => {
           </div>
 
           {/* Past Season Display */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          <div ref={robotRef} className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
           {/* Robot Image */}
-          <div className="bg-card rounded-3xl p-8 shadow-lg">
-            <div className="aspect-square rounded-2xl bg-muted flex items-center justify-center overflow-hidden">
+          <div className="bg-card rounded-3xl p-8 shadow-lg" style={{ perspective: "1000px" }}>
+            <motion.div 
+              className="aspect-square rounded-2xl bg-muted flex items-center justify-center overflow-hidden"
+              style={{ rotateY }}
+            >
               <img 
                 src={pastRobot2024} 
                 alt="Into the Deep Robot 2023-2024" 
                 className="w-full h-full object-contain"
               />
-            </div>
+            </motion.div>
           </div>
 
             {/* Robot Info */}
