@@ -1,3 +1,5 @@
+import robotImage from "@/assets/robot-2025.png";
+
 const RobotSection = () => {
   return <section id="robot" className="py-24 px-4 bg-secondary">
       <div className="max-w-6xl mx-auto">
@@ -16,18 +18,14 @@ const RobotSection = () => {
 
         {/* Robot Display */}
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Robot Image Placeholder */}
+          {/* Robot Image */}
           <div className="bg-card rounded-3xl p-8 shadow-lg">
-            <div className="aspect-square rounded-2xl bg-muted flex items-center justify-center">
-              <div className="text-center p-8">
-                <div className="text-8xl mb-4">🤖</div>
-                <p className="text-foreground font-display text-xl font-bold">
-                  Robot Photo
-                </p>
-                <p className="text-muted-foreground text-sm mt-2">
-                  Coming Soon!
-                </p>
-              </div>
+            <div className="aspect-square rounded-2xl bg-muted flex items-center justify-center overflow-hidden">
+              <img 
+                src={robotImage} 
+                alt="Beyond PI-26123 Robot for DECODE Season 2025-2026" 
+                className="w-full h-full object-contain"
+              />
             </div>
           </div>
 
