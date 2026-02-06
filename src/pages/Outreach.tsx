@@ -13,7 +13,7 @@ const outreachEvents = [
     ]
   },
   {
-    title: "Community Events",
+    title: "FTC Mentoring",
     bulletPoints: [
       "Local library demonstrations",
       "Science fair participation",
