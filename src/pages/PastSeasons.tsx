@@ -1,10 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import pastRobot2024 from "@/assets/past-robot-2024.png";
-
 const PastSeasons = () => {
-  return (
-    <div className="min-h-screen bg-background text-foreground font-body">
+  return <div className="min-h-screen bg-background text-foreground font-body">
       <Navbar />
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4">
@@ -23,11 +21,7 @@ const PastSeasons = () => {
           {/* Robot Image */}
           <div className="bg-card rounded-3xl p-8 shadow-lg">
             <div className="aspect-square rounded-2xl bg-muted flex items-center justify-center overflow-hidden">
-              <img 
-                src={pastRobot2024} 
-                alt="Into the Deep Robot 2023-2024" 
-                className="w-full h-full object-contain"
-              />
+              <img src={pastRobot2024} alt="Into the Deep Robot 2023-2024" className="w-full h-full object-contain" />
             </div>
           </div>
 
@@ -49,7 +43,7 @@ const PastSeasons = () => {
                   <p className="text-muted-foreground text-sm">Max Size</p>
                 </div>
                 <div className="bg-card rounded-2xl p-6 shadow-md text-center">
-                  <p className="text-3xl font-display font-bold text-primary">32 lbs</p>
+                  <p className="text-3xl font-display font-bold text-primary">36 lbs</p>
                   <p className="text-muted-foreground text-sm">Weight</p>
                 </div>
               </div>
@@ -70,8 +64,6 @@ const PastSeasons = () => {
         </div>
       </main>
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default PastSeasons;
