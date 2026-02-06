@@ -1,17 +1,15 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-
 const RobotSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
+  const {
+    scrollYProgress
+  } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"]
   });
-  
   const rotateY = useTransform(scrollYProgress, [0, 1], [0, 360]);
-
-  return (
-    <section id="robot" ref={sectionRef} className="py-24 px-4 bg-secondary">
+  return <section id="robot" ref={sectionRef} className="py-24 px-4 bg-secondary">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -29,11 +27,12 @@ const RobotSection = () => {
         {/* Robot Display */}
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Robot Image Placeholder */}
-          <div className="bg-card rounded-3xl p-8 shadow-lg" style={{ perspective: "1000px" }}>
-            <motion.div 
-              className="aspect-square rounded-2xl bg-muted flex items-center justify-center"
-              style={{ rotateY }}
-            >
+          <div className="bg-card rounded-3xl p-8 shadow-lg" style={{
+          perspective: "1000px"
+        }}>
+            <motion.div className="aspect-square rounded-2xl bg-muted flex items-center justify-center" style={{
+            rotateY
+          }}>
               <div className="text-center p-8">
                 <div className="text-8xl mb-4">🤖</div>
                 <p className="text-foreground font-display text-xl font-bold">
@@ -64,7 +63,7 @@ const RobotSection = () => {
                 <p className="text-muted-foreground text-sm">Max Size</p>
               </div>
               <div className="bg-card rounded-2xl p-6 shadow-md text-center">
-                <p className="text-3xl font-display font-bold text-primary">37 lbs</p>
+                <p className="text-3xl font-display font-bold text-primary">31 lbs</p>
                 <p className="text-muted-foreground text-sm">Weight</p>
               </div>
             </div>
@@ -83,8 +82,6 @@ const RobotSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default RobotSection;
