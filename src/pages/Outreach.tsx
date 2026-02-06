@@ -22,7 +22,7 @@ const outreachEvents = [
     ]
   },
   {
-    title: "Mentorship Program",
+    title: "Robotics to Ukraine",
     bulletPoints: [
       "Rookie team support",
       "Technical guidance sessions",
