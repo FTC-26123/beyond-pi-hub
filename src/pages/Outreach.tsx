@@ -4,7 +4,7 @@ import InfoCard from "@/components/InfoCard";
 
 const outreachEvents = [
   {
-    title: "School Workshops",
+    title: "FLL Mentoring",
     bulletPoints: [
       "STEM demonstrations for elementary students",
       "Hands-on robotics activities",
