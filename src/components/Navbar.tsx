@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LogIn, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 
 const navLinks = [
   { href: "#about", label: "About", isSection: true },
@@ -16,7 +17,9 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const isHomePage = location.pathname === "/";
+  const { user, signOut } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -98,15 +101,41 @@ const Navbar = () => {
             ))}
             <Button 
               size="sm" 
+              variant="ghost"
               className={`font-medium ${
                 showSolidNav
-                  ? 'bg-primary text-primary-foreground' 
-                  : 'bg-primary-foreground text-primary'
+                  ? 'text-muted-foreground hover:text-primary' 
+                  : 'text-primary-foreground/80 hover:text-primary-foreground'
               }`}
               onClick={() => scrollToSection("#contact")}
             >
               Contact
             </Button>
+            {user ? (
+              <Button 
+                size="sm" 
+                className={`font-medium ${
+                  showSolidNav
+                    ? 'bg-primary text-primary-foreground' 
+                    : 'bg-primary-foreground text-primary'
+                }`}
+                onClick={async () => { await signOut(); navigate("/"); }}
+              >
+                <LogOut className="w-4 h-4 mr-1" /> Logout
+              </Button>
+            ) : (
+              <Button 
+                size="sm" 
+                className={`font-medium ${
+                  showSolidNav
+                    ? 'bg-primary text-primary-foreground' 
+                    : 'bg-primary-foreground text-primary'
+                }`}
+                onClick={() => navigate("/auth")}
+              >
+                <LogIn className="w-4 h-4 mr-1" /> Login
+              </Button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -144,11 +173,27 @@ const Navbar = () => {
                 )
               ))}
               <Button 
-                className="bg-primary text-primary-foreground font-medium mt-2"
-                onClick={() => scrollToSection("#contact")}
+                variant="outline"
+                className="font-medium mt-2"
+                onClick={() => { scrollToSection("#contact"); }}
               >
                 Contact
               </Button>
+              {user ? (
+                <Button 
+                  className="bg-primary text-primary-foreground font-medium mt-2"
+                  onClick={async () => { await signOut(); setIsMobileMenuOpen(false); navigate("/"); }}
+                >
+                  <LogOut className="w-4 h-4 mr-1" /> Logout
+                </Button>
+              ) : (
+                <Button 
+                  className="bg-primary text-primary-foreground font-medium mt-2"
+                  onClick={() => { setIsMobileMenuOpen(false); navigate("/auth"); }}
+                >
+                  <LogIn className="w-4 h-4 mr-1" /> Login
+                </Button>
+              )}
             </div>
           </div>
         )}
