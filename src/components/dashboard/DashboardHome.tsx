@@ -1,92 +1,121 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
+import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { User, Target, Plus, Trash2, ClipboardList } from "lucide-react";
 
-
-const DEFAULT_GOALS = [
-  "Complete robot design & CAD",
-  "Build and test drivetrain",
-  "Program autonomous routines",
-  "Finalize intake mechanism",
-  "Driver practice sessions (10+)",
-  "Engineering notebook up to date",
-  "Outreach event completed",
-  "Qualify for state championship",
-];
-
 interface Goal {
+  id: string;
   text: string;
   done: boolean;
 }
 
 interface Task {
+  id: string;
   title: string;
   description: string;
   member: string;
-  finishBy: string;
+  finish_by: string | null;
   done: boolean;
 }
 
 const DashboardHome = () => {
   const { user } = useAuth();
-  const [goals, setGoals] = useState<Goal[]>(() => {
-    const saved = localStorage.getItem("bp_season_goals_v2");
-    if (saved) return JSON.parse(saved);
-    return DEFAULT_GOALS.map((text) => ({ text, done: false }));
-  });
+
+  // Goals state
+  const [goals, setGoals] = useState<Goal[]>([]);
   const [newGoal, setNewGoal] = useState("");
 
   // Tasks state
-  const [tasks, setTasks] = useState<Task[]>(() => {
-    const saved = localStorage.getItem("bp_individual_tasks");
-    return saved ? JSON.parse(saved) : [];
-  });
-  const [newTask, setNewTask] = useState({ title: "", description: "", member: "", finishBy: "" });
+  const [tasks, setTasks] = useState<Task[]>([]);
+  const [newTask, setNewTask] = useState({ title: "", description: "", member: "", finish_by: "" });
   const [showTaskForm, setShowTaskForm] = useState(false);
 
-  useEffect(() => {
-    localStorage.setItem("bp_individual_tasks", JSON.stringify(tasks));
-  }, [tasks]);
-
-  useEffect(() => {
-    localStorage.setItem("bp_season_goals_v2", JSON.stringify(goals));
-  }, [goals]);
-
-  const toggle = (i: number) => {
-    setGoals((prev) => prev.map((g, idx) => (idx === i ? { ...g, done: !g.done } : g)));
+  // Fetch goals
+  const fetchGoals = async () => {
+    const { data } = await supabase
+      .from("season_goals")
+      .select("*")
+      .order("created_at", { ascending: true });
+    if (data) setGoals(data);
   };
 
-  const addGoal = () => {
+  // Fetch tasks
+  const fetchTasks = async () => {
+    const { data } = await supabase
+      .from("individual_tasks")
+      .select("*")
+      .order("created_at", { ascending: true });
+    if (data) setTasks(data);
+  };
+
+  useEffect(() => {
+    fetchGoals();
+    fetchTasks();
+
+    // Realtime subscriptions
+    const goalsChannel = supabase
+      .channel("season_goals_changes")
+      .on("postgres_changes", { event: "*", schema: "public", table: "season_goals" }, () => {
+        fetchGoals();
+      })
+      .subscribe();
+
+    const tasksChannel = supabase
+      .channel("individual_tasks_changes")
+      .on("postgres_changes", { event: "*", schema: "public", table: "individual_tasks" }, () => {
+        fetchTasks();
+      })
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(goalsChannel);
+      supabase.removeChannel(tasksChannel);
+    };
+  }, []);
+
+  // Goal actions
+  const addGoal = async () => {
     const trimmed = newGoal.trim();
-    if (!trimmed) return;
-    setGoals((prev) => [...prev, { text: trimmed, done: false }]);
+    if (!trimmed || !user) return;
+    await supabase.from("season_goals").insert({ text: trimmed, created_by: user.id });
     setNewGoal("");
   };
 
-  const removeGoal = (i: number) => {
-    setGoals((prev) => prev.filter((_, idx) => idx !== i));
+  const toggleGoal = async (goal: Goal) => {
+    await supabase.from("season_goals").update({ done: !goal.done }).eq("id", goal.id);
   };
 
-  const completedCount = goals.filter((g) => g.done).length;
+  const removeGoal = async (id: string) => {
+    await supabase.from("season_goals").delete().eq("id", id);
+  };
 
-  const addTask = () => {
-    if (!newTask.title.trim()) return;
-    setTasks((prev) => [...prev, { ...newTask, title: newTask.title.trim(), description: newTask.description.trim(), member: newTask.member.trim(), done: false }]);
-    setNewTask({ title: "", description: "", member: "", finishBy: "" });
+  // Task actions
+  const addTask = async () => {
+    if (!newTask.title.trim() || !user) return;
+    await supabase.from("individual_tasks").insert({
+      title: newTask.title.trim(),
+      description: newTask.description.trim(),
+      member: newTask.member.trim(),
+      finish_by: newTask.finish_by || null,
+      created_by: user.id,
+    });
+    setNewTask({ title: "", description: "", member: "", finish_by: "" });
     setShowTaskForm(false);
   };
 
-  const toggleTask = (i: number) => {
-    setTasks((prev) => prev.map((t, idx) => (idx === i ? { ...t, done: !t.done } : t)));
+  const toggleTask = async (task: Task) => {
+    await supabase.from("individual_tasks").update({ done: !task.done }).eq("id", task.id);
   };
 
-  const removeTask = (i: number) => {
-    setTasks((prev) => prev.filter((_, idx) => idx !== i));
+  const removeTask = async (id: string) => {
+    await supabase.from("individual_tasks").delete().eq("id", id);
   };
+
+  const completedCount = goals.filter((g) => g.done).length;
 
   return (
     <div className="space-y-8">
@@ -119,7 +148,6 @@ const DashboardHome = () => {
             </span>
           </CardHeader>
           <CardContent className="space-y-4">
-            {/* Progress bar */}
             <div className="w-full h-2 rounded-full bg-muted/40">
               <div
                 className="h-2 rounded-full bg-primary transition-all duration-300"
@@ -127,11 +155,7 @@ const DashboardHome = () => {
               />
             </div>
 
-            {/* Add goal */}
-            <form
-              onSubmit={(e) => { e.preventDefault(); addGoal(); }}
-              className="flex gap-2"
-            >
+            <form onSubmit={(e) => { e.preventDefault(); addGoal(); }} className="flex gap-2">
               <Input
                 placeholder="Add a new goal..."
                 value={newGoal}
@@ -143,17 +167,16 @@ const DashboardHome = () => {
               </Button>
             </form>
 
-            {/* Goals list */}
             <ul className="space-y-2">
-              {goals.map((goal, i) => (
-                <li key={i} className="flex items-center gap-3 group">
+              {goals.map((goal) => (
+                <li key={goal.id} className="flex items-center gap-3">
                   <Checkbox
-                    id={`goal-${i}`}
+                    id={`goal-${goal.id}`}
                     checked={goal.done}
-                    onCheckedChange={() => toggle(i)}
+                    onCheckedChange={() => toggleGoal(goal)}
                   />
                   <label
-                    htmlFor={`goal-${i}`}
+                    htmlFor={`goal-${goal.id}`}
                     className={`text-sm cursor-pointer select-none flex-1 ${
                       goal.done ? "line-through text-muted-foreground" : "text-foreground"
                     }`}
@@ -162,7 +185,7 @@ const DashboardHome = () => {
                   </label>
                   <button
                     type="button"
-                    onClick={() => removeGoal(i)}
+                    onClick={() => removeGoal(goal.id)}
                     className="text-muted-foreground hover:text-destructive transition-colors"
                   >
                     <Trash2 className="w-4 h-4" />
@@ -209,8 +232,8 @@ const DashboardHome = () => {
               />
               <Input
                 type="date"
-                value={newTask.finishBy}
-                onChange={(e) => setNewTask({ ...newTask, finishBy: e.target.value })}
+                value={newTask.finish_by}
+                onChange={(e) => setNewTask({ ...newTask, finish_by: e.target.value })}
               />
               <div className="sm:col-span-2 flex gap-2">
                 <Button type="submit" size="sm">Save</Button>
@@ -235,10 +258,10 @@ const DashboardHome = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {tasks.map((task, i) => (
-                    <tr key={i} className="border-b border-border/50 last:border-0">
+                  {tasks.map((task) => (
+                    <tr key={task.id} className="border-b border-border/50 last:border-0">
                       <td className="py-2 pr-3">
-                        <Checkbox checked={task.done} onCheckedChange={() => toggleTask(i)} />
+                        <Checkbox checked={task.done} onCheckedChange={() => toggleTask(task)} />
                       </td>
                       <td className={`py-2 pr-3 ${task.done ? "line-through text-muted-foreground" : "text-foreground"}`}>
                         {task.title}
@@ -250,12 +273,12 @@ const DashboardHome = () => {
                         {task.member || "—"}
                       </td>
                       <td className={`py-2 pr-3 ${task.done ? "line-through text-muted-foreground" : "text-foreground"}`}>
-                        {task.finishBy || "—"}
+                        {task.finish_by || "—"}
                       </td>
                       <td className="py-2">
                         <button
                           type="button"
-                          onClick={() => removeTask(i)}
+                          onClick={() => removeTask(task.id)}
                           className="text-muted-foreground hover:text-destructive transition-colors"
                         >
                           <Trash2 className="w-4 h-4" />
