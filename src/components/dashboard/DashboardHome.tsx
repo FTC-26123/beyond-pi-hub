@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { User, Target, Plus, Trash2, ClipboardList } from "lucide-react";
 import { User, Target, Plus, Trash2 } from "lucide-react";
 
 const DEFAULT_GOALS = [
