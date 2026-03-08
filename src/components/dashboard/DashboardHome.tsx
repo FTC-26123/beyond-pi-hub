@@ -73,6 +73,21 @@ const DashboardHome = () => {
 
   const completedCount = goals.filter((g) => g.done).length;
 
+  const addTask = () => {
+    if (!newTask.title.trim()) return;
+    setTasks((prev) => [...prev, { ...newTask, title: newTask.title.trim(), description: newTask.description.trim(), member: newTask.member.trim(), done: false }]);
+    setNewTask({ title: "", description: "", member: "", finishBy: "" });
+    setShowTaskForm(false);
+  };
+
+  const toggleTask = (i: number) => {
+    setTasks((prev) => prev.map((t, idx) => (idx === i ? { ...t, done: !t.done } : t)));
+  };
+
+  const removeTask = (i: number) => {
+    setTasks((prev) => prev.filter((_, idx) => idx !== i));
+  };
+
   return (
     <div className="space-y-8">
       <div>
