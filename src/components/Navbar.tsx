@@ -194,12 +194,21 @@ const Navbar = () => {
                 Contact
               </Button>
               {user ? (
-                <Button 
-                  className="bg-primary text-primary-foreground font-medium mt-2"
-                  onClick={async () => { await signOut(); setIsMobileMenuOpen(false); navigate("/"); }}
-                >
-                  <LogOut className="w-4 h-4 mr-1" /> Logout
-                </Button>
+                <>
+                  <Button 
+                    variant="outline"
+                    className="font-medium mt-2"
+                    onClick={() => { setIsMobileMenuOpen(false); navigate("/dashboard"); }}
+                  >
+                    <Home className="w-4 h-4 mr-1" /> Dashboard
+                  </Button>
+                  <Button 
+                    className="bg-primary text-primary-foreground font-medium mt-2"
+                    onClick={async () => { await signOut(); setIsMobileMenuOpen(false); navigate("/"); }}
+                  >
+                    <LogOut className="w-4 h-4 mr-1" /> Logout
+                  </Button>
+                </>
               ) : (
                 <Button 
                   className="bg-primary text-primary-foreground font-medium mt-2"
