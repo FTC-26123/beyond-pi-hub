@@ -23,6 +23,14 @@ interface Goal {
   done: boolean;
 }
 
+interface Task {
+  title: string;
+  description: string;
+  member: string;
+  finishBy: string;
+  done: boolean;
+}
+
 const DashboardHome = () => {
   const { user } = useAuth();
   const [goals, setGoals] = useState<Goal[]>(() => {
