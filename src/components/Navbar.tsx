@@ -173,11 +173,27 @@ const Navbar = () => {
                 )
               ))}
               <Button 
-                className="bg-primary text-primary-foreground font-medium mt-2"
-                onClick={() => scrollToSection("#contact")}
+                variant="outline"
+                className="font-medium mt-2"
+                onClick={() => { scrollToSection("#contact"); }}
               >
                 Contact
               </Button>
+              {user ? (
+                <Button 
+                  className="bg-primary text-primary-foreground font-medium mt-2"
+                  onClick={async () => { await signOut(); setIsMobileMenuOpen(false); navigate("/"); }}
+                >
+                  <LogOut className="w-4 h-4 mr-1" /> Logout
+                </Button>
+              ) : (
+                <Button 
+                  className="bg-primary text-primary-foreground font-medium mt-2"
+                  onClick={() => { setIsMobileMenuOpen(false); navigate("/auth"); }}
+                >
+                  <LogIn className="w-4 h-4 mr-1" /> Login
+                </Button>
+              )}
             </div>
           </div>
         )}
