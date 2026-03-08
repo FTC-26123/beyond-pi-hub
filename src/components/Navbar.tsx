@@ -17,7 +17,9 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const isHomePage = location.pathname === "/";
+  const { user, signOut } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
