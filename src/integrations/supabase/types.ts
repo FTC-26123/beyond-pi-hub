@@ -14,6 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
+      individual_tasks: {
+        Row: {
+          created_at: string
+          created_by: string
+          description: string | null
+          done: boolean
+          finish_by: string | null
+          id: string
+          member: string | null
+          title: string
+        }
+        Insert: {
+          created_at?: string
+          created_by: string
+          description?: string | null
+          done?: boolean
+          finish_by?: string | null
+          id?: string
+          member?: string | null
+          title: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string
+          description?: string | null
+          done?: boolean
+          finish_by?: string | null
+          id?: string
+          member?: string | null
+          title?: string
+        }
+        Relationships: []
+      }
       meeting_logs: {
         Row: {
           created_at: string
@@ -65,6 +98,30 @@ export type Database = {
           id?: string
           updated_at?: string
           user_id?: string
+        }
+        Relationships: []
+      }
+      season_goals: {
+        Row: {
+          created_at: string
+          created_by: string
+          done: boolean
+          id: string
+          text: string
+        }
+        Insert: {
+          created_at?: string
+          created_by: string
+          done?: boolean
+          id?: string
+          text: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string
+          done?: boolean
+          id?: string
+          text?: string
         }
         Relationships: []
       }
