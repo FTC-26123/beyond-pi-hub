@@ -101,15 +101,41 @@ const Navbar = () => {
             ))}
             <Button 
               size="sm" 
+              variant="ghost"
               className={`font-medium ${
                 showSolidNav
-                  ? 'bg-primary text-primary-foreground' 
-                  : 'bg-primary-foreground text-primary'
+                  ? 'text-muted-foreground hover:text-primary' 
+                  : 'text-primary-foreground/80 hover:text-primary-foreground'
               }`}
               onClick={() => scrollToSection("#contact")}
             >
               Contact
             </Button>
+            {user ? (
+              <Button 
+                size="sm" 
+                className={`font-medium ${
+                  showSolidNav
+                    ? 'bg-primary text-primary-foreground' 
+                    : 'bg-primary-foreground text-primary'
+                }`}
+                onClick={async () => { await signOut(); navigate("/"); }}
+              >
+                <LogOut className="w-4 h-4 mr-1" /> Logout
+              </Button>
+            ) : (
+              <Button 
+                size="sm" 
+                className={`font-medium ${
+                  showSolidNav
+                    ? 'bg-primary text-primary-foreground' 
+                    : 'bg-primary-foreground text-primary'
+                }`}
+                onClick={() => navigate("/auth")}
+              >
+                <LogIn className="w-4 h-4 mr-1" /> Login
+              </Button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
