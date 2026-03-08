@@ -10,6 +10,7 @@ import Sponsorship from "./pages/Sponsorship";
 import MeetTheTeam from "./pages/MeetTheTeam";
 import PastSeasons from "./pages/PastSeasons";
 import Auth from "./pages/Auth";
+import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
