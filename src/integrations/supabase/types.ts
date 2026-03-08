@@ -14,6 +14,33 @@ export type Database = {
   }
   public: {
     Tables: {
+      meeting_logs: {
+        Row: {
+          created_at: string
+          duration_minutes: number
+          id: string
+          meeting_date: string
+          notes: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          duration_minutes: number
+          id?: string
+          meeting_date: string
+          notes: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          duration_minutes?: number
+          id?: string
+          meeting_date?: string
+          notes?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
