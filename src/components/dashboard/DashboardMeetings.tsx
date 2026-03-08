@@ -47,6 +47,17 @@ const DashboardMeetings = () => {
 
   useEffect(() => {
     fetchLogs();
+
+    const channel = supabase
+      .channel("meeting_logs_changes")
+      .on("postgres_changes", { event: "*", schema: "public", table: "meeting_logs" }, () => {
+        fetchLogs();
+      })
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
