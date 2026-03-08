@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, LogIn, LogOut } from "lucide-react";
+import { Menu, X, LogIn, LogOut, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
@@ -112,17 +112,31 @@ const Navbar = () => {
               Contact
             </Button>
             {user ? (
-              <Button 
-                size="sm" 
-                className={`font-medium ${
-                  showSolidNav
-                    ? 'bg-primary text-primary-foreground' 
-                    : 'bg-primary-foreground text-primary'
-                }`}
-                onClick={async () => { await signOut(); navigate("/"); }}
-              >
-                <LogOut className="w-4 h-4 mr-1" /> Logout
-              </Button>
+              <>
+                <Button 
+                  size="sm" 
+                  variant="ghost"
+                  className={`font-medium ${
+                    showSolidNav
+                      ? 'text-muted-foreground hover:text-primary' 
+                      : 'text-primary-foreground/80 hover:text-primary-foreground'
+                  }`}
+                  onClick={() => navigate("/dashboard")}
+                >
+                  <Home className="w-4 h-4" />
+                </Button>
+                <Button 
+                  size="sm" 
+                  className={`font-medium ${
+                    showSolidNav
+                      ? 'bg-primary text-primary-foreground' 
+                      : 'bg-primary-foreground text-primary'
+                  }`}
+                  onClick={async () => { await signOut(); navigate("/"); }}
+                >
+                  <LogOut className="w-4 h-4 mr-1" /> Logout
+                </Button>
+              </>
             ) : (
               <Button 
                 size="sm" 
@@ -180,12 +194,21 @@ const Navbar = () => {
                 Contact
               </Button>
               {user ? (
-                <Button 
-                  className="bg-primary text-primary-foreground font-medium mt-2"
-                  onClick={async () => { await signOut(); setIsMobileMenuOpen(false); navigate("/"); }}
-                >
-                  <LogOut className="w-4 h-4 mr-1" /> Logout
-                </Button>
+                <>
+                  <Button 
+                    variant="outline"
+                    className="font-medium mt-2"
+                    onClick={() => { setIsMobileMenuOpen(false); navigate("/dashboard"); }}
+                  >
+                    <Home className="w-4 h-4 mr-1" /> Dashboard
+                  </Button>
+                  <Button 
+                    className="bg-primary text-primary-foreground font-medium mt-2"
+                    onClick={async () => { await signOut(); setIsMobileMenuOpen(false); navigate("/"); }}
+                  >
+                    <LogOut className="w-4 h-4 mr-1" /> Logout
+                  </Button>
+                </>
               ) : (
                 <Button 
                   className="bg-primary text-primary-foreground font-medium mt-2"
