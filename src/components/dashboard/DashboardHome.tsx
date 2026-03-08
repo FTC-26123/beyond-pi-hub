@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
-import { User, Wrench, Target } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { User, Target, Plus, Trash2 } from "lucide-react";
 
-const SEASON_GOALS = [
+const DEFAULT_GOALS = [
   "Complete robot design & CAD",
   "Build and test drivetrain",
   "Program autonomous routines",
@@ -15,22 +17,40 @@ const SEASON_GOALS = [
   "Qualify for state championship",
 ];
 
+interface Goal {
+  text: string;
+  done: boolean;
+}
+
 const DashboardHome = () => {
   const { user } = useAuth();
-  const [checked, setChecked] = useState<Record<number, boolean>>(() => {
-    const saved = localStorage.getItem("bp_season_goals");
-    return saved ? JSON.parse(saved) : {};
+  const [goals, setGoals] = useState<Goal[]>(() => {
+    const saved = localStorage.getItem("bp_season_goals_v2");
+    if (saved) return JSON.parse(saved);
+    return DEFAULT_GOALS.map((text) => ({ text, done: false }));
   });
+  const [newGoal, setNewGoal] = useState("");
 
   useEffect(() => {
-    localStorage.setItem("bp_season_goals", JSON.stringify(checked));
-  }, [checked]);
+    localStorage.setItem("bp_season_goals_v2", JSON.stringify(goals));
+  }, [goals]);
 
   const toggle = (i: number) => {
-    setChecked((prev) => ({ ...prev, [i]: !prev[i] }));
+    setGoals((prev) => prev.map((g, idx) => (idx === i ? { ...g, done: !g.done } : g)));
   };
 
-  const completedCount = Object.values(checked).filter(Boolean).length;
+  const addGoal = () => {
+    const trimmed = newGoal.trim();
+    if (!trimmed) return;
+    setGoals((prev) => [...prev, { text: trimmed, done: false }]);
+    setNewGoal("");
+  };
+
+  const removeGoal = (i: number) => {
+    setGoals((prev) => prev.filter((_, idx) => idx !== i));
+  };
+
+  const completedCount = goals.filter((g) => g.done).length;
 
   return (
     <div className="space-y-8">
@@ -38,9 +58,7 @@ const DashboardHome = () => {
         <h1 className="font-display text-3xl font-bold text-foreground">
           Welcome back, {user?.user_metadata?.display_name || user?.email?.split("@")[0]}!
         </h1>
-        <p className="text-muted-foreground mt-2">
-          Beyond Pi #26123 — Member Dashboard
-        </p>
+        <p className="text-muted-foreground mt-2">Beyond Pi #26123 — Member Dashboard</p>
       </div>
 
       <div className="grid gap-6 md:grid-cols-3">
@@ -54,53 +72,68 @@ const DashboardHome = () => {
           </CardContent>
         </Card>
 
-        <Card className="md:col-span-2 row-span-2">
+        <Card className="md:col-span-2">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <div className="flex items-center gap-3">
               <Target className="w-5 h-5 text-primary" />
               <CardTitle className="text-lg">Season Goals</CardTitle>
             </div>
             <span className="text-sm text-muted-foreground">
-              {completedCount}/{SEASON_GOALS.length} done
+              {completedCount}/{goals.length} done
             </span>
           </CardHeader>
-          <CardContent>
+          <CardContent className="space-y-4">
             {/* Progress bar */}
-            <div className="w-full h-2 rounded-full bg-muted/40 mb-4">
+            <div className="w-full h-2 rounded-full bg-muted/40">
               <div
                 className="h-2 rounded-full bg-primary transition-all duration-300"
-                style={{ width: `${(completedCount / SEASON_GOALS.length) * 100}%` }}
+                style={{ width: `${goals.length ? (completedCount / goals.length) * 100 : 0}%` }}
               />
             </div>
-            <ul className="space-y-3">
-              {SEASON_GOALS.map((goal, i) => (
-                <li key={i} className="flex items-center gap-3">
+
+            {/* Add goal */}
+            <form
+              onSubmit={(e) => { e.preventDefault(); addGoal(); }}
+              className="flex gap-2"
+            >
+              <Input
+                placeholder="Add a new goal..."
+                value={newGoal}
+                onChange={(e) => setNewGoal(e.target.value)}
+                className="flex-1"
+              />
+              <Button type="submit" size="sm" disabled={!newGoal.trim()} className="gap-1">
+                <Plus className="w-4 h-4" /> Add
+              </Button>
+            </form>
+
+            {/* Goals list */}
+            <ul className="space-y-2">
+              {goals.map((goal, i) => (
+                <li key={i} className="flex items-center gap-3 group">
                   <Checkbox
                     id={`goal-${i}`}
-                    checked={!!checked[i]}
+                    checked={goal.done}
                     onCheckedChange={() => toggle(i)}
                   />
                   <label
                     htmlFor={`goal-${i}`}
-                    className={`text-sm cursor-pointer select-none ${
-                      checked[i] ? "line-through text-muted-foreground" : "text-foreground"
+                    className={`text-sm cursor-pointer select-none flex-1 ${
+                      goal.done ? "line-through text-muted-foreground" : "text-foreground"
                     }`}
                   >
-                    {goal}
+                    {goal.text}
                   </label>
+                  <button
+                    type="button"
+                    onClick={() => removeGoal(i)}
+                    className="opacity-0 group-hover:opacity-100 transition-opacity text-muted-foreground hover:text-destructive"
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </button>
                 </li>
               ))}
             </ul>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader className="flex flex-row items-center gap-3 pb-2">
-            <Wrench className="w-5 h-5 text-primary" />
-            <CardTitle className="text-lg">Quick Links</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-muted-foreground">Access team resources and tools</p>
           </CardContent>
         </Card>
       </div>
