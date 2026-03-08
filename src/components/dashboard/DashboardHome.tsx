@@ -40,6 +40,18 @@ const DashboardHome = () => {
   });
   const [newGoal, setNewGoal] = useState("");
 
+  // Tasks state
+  const [tasks, setTasks] = useState<Task[]>(() => {
+    const saved = localStorage.getItem("bp_individual_tasks");
+    return saved ? JSON.parse(saved) : [];
+  });
+  const [newTask, setNewTask] = useState({ title: "", description: "", member: "", finishBy: "" });
+  const [showTaskForm, setShowTaskForm] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("bp_individual_tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
   useEffect(() => {
     localStorage.setItem("bp_season_goals_v2", JSON.stringify(goals));
   }, [goals]);
