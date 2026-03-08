@@ -112,17 +112,31 @@ const Navbar = () => {
               Contact
             </Button>
             {user ? (
-              <Button 
-                size="sm" 
-                className={`font-medium ${
-                  showSolidNav
-                    ? 'bg-primary text-primary-foreground' 
-                    : 'bg-primary-foreground text-primary'
-                }`}
-                onClick={async () => { await signOut(); navigate("/"); }}
-              >
-                <LogOut className="w-4 h-4 mr-1" /> Logout
-              </Button>
+              <>
+                <Button 
+                  size="sm" 
+                  variant="ghost"
+                  className={`font-medium ${
+                    showSolidNav
+                      ? 'text-muted-foreground hover:text-primary' 
+                      : 'text-primary-foreground/80 hover:text-primary-foreground'
+                  }`}
+                  onClick={() => navigate("/dashboard")}
+                >
+                  <Home className="w-4 h-4" />
+                </Button>
+                <Button 
+                  size="sm" 
+                  className={`font-medium ${
+                    showSolidNav
+                      ? 'bg-primary text-primary-foreground' 
+                      : 'bg-primary-foreground text-primary'
+                  }`}
+                  onClick={async () => { await signOut(); navigate("/"); }}
+                >
+                  <LogOut className="w-4 h-4 mr-1" /> Logout
+                </Button>
+              </>
             ) : (
               <Button 
                 size="sm" 
