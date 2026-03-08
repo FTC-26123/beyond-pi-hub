@@ -21,7 +21,7 @@ const Auth = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    if (user) navigate("/");
+    if (user) navigate("/dashboard");
   }, [user, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -34,7 +34,7 @@ const Auth = () => {
         toast({ title: "Login failed", description: error.message, variant: "destructive" });
       } else {
         toast({ title: "Welcome back!" });
-        navigate("/");
+        navigate("/dashboard");
       }
     } else {
       const { error } = await supabase.auth.signUp({

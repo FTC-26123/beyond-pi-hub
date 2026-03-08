@@ -10,6 +10,7 @@ import Sponsorship from "./pages/Sponsorship";
 import MeetTheTeam from "./pages/MeetTheTeam";
 import PastSeasons from "./pages/PastSeasons";
 import Auth from "./pages/Auth";
+import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/meet-the-team" element={<MeetTheTeam />} />
             <Route path="/past-seasons" element={<PastSeasons />} />
             <Route path="/auth" element={<Auth />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
