@@ -127,7 +127,7 @@ const DashboardHome = () => {
                   <button
                     type="button"
                     onClick={() => removeGoal(i)}
-                    className="opacity-0 group-hover:opacity-100 transition-opacity text-muted-foreground hover:text-destructive"
+                    className="text-muted-foreground hover:text-destructive transition-colors"
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>
