@@ -1,3 +1,6 @@
+import ftcScoutIcon from "@/assets/ftcscout-icon.png";
+import firstIcon from "@/assets/first-icon.png";
+
 const Footer = () => {
   return (
     <footer className="py-8 px-4 bg-foreground text-primary-foreground">
@@ -12,8 +15,25 @@ const Footer = () => {
             © {new Date().getFullYear()} Beyond Pi Robotics. FTC Team 26123.
           </p>
           
-          <div className="flex items-center gap-4 text-xs opacity-70">
-            <span>Gracious Professionalism®</span>
+          <div className="flex items-center gap-4">
+            <a
+              href="https://ftcscout.org/teams/26123"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-sm opacity-70 hover:opacity-100 transition-opacity"
+            >
+              <img src={ftcScoutIcon} alt="FTC Scout" className="w-5 h-5" />
+              <span>FTC Scout</span>
+            </a>
+            <a
+              href="https://ftc-events.firstinspires.org/team/26123"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-sm opacity-70 hover:opacity-100 transition-opacity"
+            >
+              <img src={firstIcon} alt="FIRST Inspires" className="w-5 h-5" />
+              <span>FIRST Inspires</span>
+            </a>
           </div>
         </div>
       </div>
