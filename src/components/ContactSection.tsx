@@ -1,4 +1,6 @@
-import { Mail, MapPin, Instagram, Youtube } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
+import ftcScoutIcon from "@/assets/ftcscout-icon.png";
+import firstIcon from "@/assets/first-icon.png";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
