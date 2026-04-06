@@ -59,17 +59,19 @@ const ContactSection = () => {
                   href="https://ftcscout.org/teams/26123" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover:bg-primary/10 transition-colors"
+                  className="h-10 px-3 rounded-lg bg-muted flex items-center gap-2 hover:bg-primary/10 transition-colors"
                 >
-                  <img src={ftcScoutIcon} alt="FTC Scout" className="w-5 h-5" />
+                  <img src={ftcScoutIcon} alt="FTC Scout" className="w-6 h-6" />
+                  <span className="text-sm font-medium text-foreground">FTC Scout</span>
                 </a>
                 <a 
                   href="https://ftc-events.firstinspires.org/team/26123" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover:bg-primary/10 transition-colors"
+                  className="h-10 px-3 rounded-lg bg-muted flex items-center gap-2 hover:bg-primary/10 transition-colors"
                 >
-                  <img src={firstIcon} alt="FIRST Inspires" className="w-5 h-5" />
+                  <img src={firstIcon} alt="FIRST Inspires" className="w-6 h-6" />
+                  <span className="text-sm font-medium text-foreground">FIRST Inspires</span>
                 </a>
               </div>
             </div>
